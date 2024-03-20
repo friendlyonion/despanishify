@@ -1,0 +1,35 @@
+.translation-box{
+    width:90%;
+    height:20%;
+    background-color: #D9D9D9;
+}
+.main{
+    height:100%;
+    width:100%;
+    align-items: center ;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+body{
+    height:100%;
+    width:100%;
+    align-items: center ;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+html{
+    height:100%;
+    width:100%;
+    align-items: center ;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.dialect-box{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+}
