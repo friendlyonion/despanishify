@@ -44,6 +44,7 @@ html{
     height: 50%;
 
 
+
 }
 .dialect-box-mini{
     display: flex;
@@ -63,6 +64,7 @@ html{
     align-items: center;
     justify-content: center;
     transition: 0.1s;
+
 }
 .dialect-box-mini:hover{
 transform: scale(1.1);
