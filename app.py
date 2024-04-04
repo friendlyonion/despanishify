@@ -2,7 +2,6 @@
 # An object of Flask class is our WSGI application.
 from flask import Flask, render_template, jsonify
 from flask import url_for, request
-import asyncio
 
 # Flask constructor takes the name of
 # current module (__name__) as argument.
