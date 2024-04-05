@@ -22,7 +22,7 @@ from openai import OpenAI
 import csv
 import os
 def translate(x):
-    client = OpenAI(api_key=os.environ.get("lol.env"))
+    client = OpenAI(api_key='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')
     translation_string = ''
     with open('mexican.csv') as f:
         translations = csv.reader(f)
