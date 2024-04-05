@@ -20,8 +20,9 @@ async def index():
 
 from openai import OpenAI
 import csv
+import os
 def translate(x):
-    client = OpenAI()
+    client = OpenAI(api_key=os.environ.get("lol.env"))
     translation_string = ''
     with open('mexican.csv') as f:
         translations = csv.reader(f)
