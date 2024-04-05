@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spanishfy</title>
     <link rel="stylesheet" href="static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 
-    <div class="main">
+    <form class="main" id="myForm">
         <div class="dialect-box">
             <button class="dialect-box-mini">          
                 Dialect: Mexico
@@ -22,29 +23,30 @@
             <img src="static\arrow.png"/>
         </div>
         <div class="translation-box">
-            <p id="data">translation here</p>
+            <p id="data">Translation</p>
         </div>
-        <button id='update-button'>translate</button>
-    </div>
+        <button id='update-button' type="submit">translate</button>
+    </form>
     <script>
-document.getElementById('update-button').addEventListener('click', function() {
-  var userInput = document.getElementById('translate-one').value;  // Get user input from translate-one element
+        $(document).ready(function() {
+            $("#myForm").submit(function(event) {
+                event.preventDefault(); // Prevent default form submission
 
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/update_data', true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      var data = JSON.parse(xhr.responseText);
-      document.getElementById("data").textContent = data.data;
-    } else {
-      console.error('Error updating data:', xhr.statusText);
-    }
-  };
+                var formData = $(this).serialize(); // Get form data
 
-  // Send data as JSON, including the user input
-  xhr.send(JSON.stringify({ data: userInput }));
-});
+                $.ajax({
+                    type: "POST",
+                    url: "/",  // Replace with your actual Flask route for handling the form
+                    data: formData,
+                    success: function(response) {
+                        $("#data").html(response.data);  // Update the response area
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        $("#data").html("Error: " + textStatus + ", " + errorThrown);
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
