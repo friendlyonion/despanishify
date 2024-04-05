@@ -9,28 +9,18 @@ app = Flask(__name__)
 # The route() function of the Flask class is a decorator,
 # which tells the application which URL should call
 # the associated function.tt
-@app.route('/', methods=['POST', 'GET'])
-# ‘/’ URL is bound with hello_world() function.
-def index():
-	return render_template('index.html')
-
-@app.route('/update_data', methods=['POST', 'GET'])
-async def update_data():
-	try:
-		data = request.get_json()  # Access data from JSON payload
-		if data:
-			user_input = data.get('data')
-			print(user_input)
-		translate_me = await translate(user_input)
-		data = {"data": translate_me}
-		print(type(translate_me))
-		return jsonify(data)
-	except:
-		return {"data", 'Error, please try again'}
+@app.route('/', methods=['GET', 'POST'])
+async def index():
+    if request.method == 'GET':
+        return render_template('index.html')  # Render the form template
+    else:
+        data = request.form['translate-one']  # Access form data
+        api_response = translate(data)  # Await the API call
+        return jsonify({"data":api_response})  # Return JSON response for AJAX
 
 from openai import OpenAI
 import csv
-async def translate(x):
+def translate(x):
     client = OpenAI()
     translation_string = ''
     with open('mexican.csv') as f:
