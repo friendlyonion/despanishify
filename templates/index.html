@@ -8,13 +8,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-
     <form class="main" id="myForm">
         <div class="dialect-box">
-            <button class="dialect-box-mini">          
-                Dialect: Mexico
-                <img class='flag-image' src="static\mexico.png"/>
-            </button> 
+            <div class="container">              
+                  <div class="dropdown">
+                    <div class="select">
+                      <span>Select Dialect</span>
+                      <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="dialect" value="none">
+                    <ul class="dropdown-menu">
+                      <li id="mexican" name="mexican" ><img class='flag-image' src="static\mexico.png"/>Mexican </li>
+                      <li id="colombian" name="colombian"><img class='flag-image' src="static\colombia.png"/>Colombian</li>
+                      <li id="ecuadorian" name="ecuadorian"><img class='flag-image' src="static\ecuador.png"/>Ecuadorian</li>
+
+                    </ul>
+                  </div>
+              
+              <span class="msg"></span>
+            </div> 
+
         </div>
         <input type = 'text'class="translation-box" placeholder="Type here" name="translate-one" id="translate-one">
             
@@ -48,5 +61,25 @@
             });
         });
     </script>
+    <script>
+        /*Dropdown Menu*/
+        $('.dropdown').click(function () {
+                $(this).attr('tabindex', 1).focus();
+                $(this).toggleClass('active');
+                $(this).find('.dropdown-menu').slideToggle(300);
+            });
+            $('.dropdown').focusout(function () {
+                $(this).removeClass('active');
+                $(this).find('.dropdown-menu').slideUp(300);
+            });
+            $('.dropdown .dropdown-menu li').click(function () {
+                $(this).parents('.dropdown').find('span').text($(this).text());
+                $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+            });
+        /*End Dropdown Menu*/
+        
+        
+
+        </script>
 </body>
 </html>

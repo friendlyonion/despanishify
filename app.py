@@ -14,21 +14,35 @@ async def index():
     if request.method == 'GET':
         return render_template('index.html')  # Render the form template
     else:
+        dialect = request.form.get('dialect')
         data = request.form['translate-one']  # Access form data
-        api_response = translate(data)  # Await the API call
+        api_response = translate(data, dialect)  # Await the API call
         return jsonify({"data":api_response})  # Return JSON response for AJAX
 
 from openai import OpenAI
 import csv
 import os
-def translate(x):
+def translate(x,dialect):
     client = OpenAI(api_key='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')
     translation_string = ''
-    with open('mexican.csv') as f:
-        translations = csv.reader(f)
-        for row in translations:
-            translation_string = translation_string + str(row)
-    statement = "Translate this statement {translate_this} using this dictionary formatted in ['spanish word', 'slang translation'] make sure the final result is in english. Account for Mexican slang{dictionary}. Use common sense in the translation. Things that dont sound right are probably not right. Such as passing an animal to another person".format(translate_this=x, dictionary = translation_string)
+    if dialect == 'mexican':
+      with open('mexican.csv') as f:
+          translations = csv.reader(f)
+          for row in translations:
+              translation_string = translation_string + str(row)
+    if dialect == 'colombian':
+      with open('colombian.csv') as f:
+          translations = csv.reader(f)
+          for row in translations:
+              translation_string = translation_string + str(row)
+    if dialect == 'ecuadorian':
+      with open('ecuadorian.csv') as f:
+          translations = csv.reader(f)
+          for row in translations:
+              translation_string = translation_string + str(row)
+    if dialect == 'none':
+        return 'Please select a dialect'
+    statement = "Translate this statement {translate_this} using this dictionary formatted in ['spanish word', 'slang translation'] make sure the final result is in english. Account for slang{dictionary}. Use common sense in the translation. Things that dont sound right are probably not right. Such as passing an animal to another person".format(translate_this=x, dictionary = translation_string)
     print(statement)
     completion =  client.chat.completions.create(
       model="gpt-4",
