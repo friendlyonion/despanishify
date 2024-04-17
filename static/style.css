@@ -11,6 +11,13 @@
     padding-bottom: 10%;
     padding-left: 2%;
 }
+.translation-box::placeholder{
+    font-size: 20px;
+}
+input[type="text"]
+{
+    font-size:20px;
+}
 .main{
     height:100%;
     width:100%;
@@ -41,10 +48,15 @@ html{
     align-items: center;
     justify-content: right;
     width: 90%;
-    height: 50%;
+    height: 10%;
+    
 
 
 
+
+}
+#data{
+    font-size:24px;
 }
 .dialect-box-mini{
     display: flex;
@@ -114,7 +126,8 @@ background-color: #a3a3a3;
     font-size: 14px;
     color: #474747;
     height: 100%;
-    text-align: left
+    text-align: left;
+    font-size: 20px;
   }
   .dropdown .select {
       cursor: pointer;
@@ -172,4 +185,30 @@ background-color: #a3a3a3;
   }
   .dropdown .dropdown-menu li:active {
       background-color: #e2e2e2
+  }
+  .translation-button{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    float: right;
+    height:80px;
+    width: 110px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 0px;
+    line-height:0px;
+    box-sizing : content-box;
+
+    text-align: center;
+display:table-cell;
+vertical-align:middle;
+font-size: 20px;
+  }
+  .oof{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 90%;
+    height:10%;
+    margin-top:-22%;
   }
