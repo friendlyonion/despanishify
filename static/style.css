@@ -227,3 +227,7 @@ transition: 0.2s;
     height:10%;
     margin-top: -5%;
   }
+  .arrow{
+    height: auto;
+    width: auto;
+  }
