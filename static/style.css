@@ -2,7 +2,6 @@
     width:90%;
     min-width: 374px;
     height:20%;
-    min-height: ;
     background-color: #fff;
     box-shadow: 0 0 4px rgb(204, 204, 204);
     border-radius: 8px 8px 8px 8px;
@@ -12,11 +11,21 @@
     padding-bottom: 10%;
     padding-left: 2%;
 }
+textarea{
+    border:0;
+    padding-top: 5%;
+    font-size: 20px;
+}
 .translation-box::placeholder{
     font-size: 20px;
     border-color: rgba(204, 204, 204, 0);
 }
 input[type="text"]
+{
+    font-size:20px;
+    border-color: rgba(204, 204, 204, 0);
+}
+input[type="textarea"]
 {
     font-size:20px;
     border-color: rgba(204, 204, 204, 0);
