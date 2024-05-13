@@ -1,6 +1,10 @@
 # Importing flask module in the project is mandatory
 # An object of Flask class is our WSGI application.
 from flask import Flask, render_template, jsonify, request
+from openai import OpenAI
+import csv
+import os
+
 
 # Flask constructor takes the name of
 # current module (__name__) as argument.
@@ -19,11 +23,10 @@ async def index():
         api_response = translate(data, dialect)  # Await the API call
         return jsonify({"data":api_response})  # Return JSON response for AJAX
 
-from openai import OpenAI
-import csv
-import os
+
+openai_api_key = os.environ.get("openai_api_key")
 def translate(x,dialect):
-    client = OpenAI(api_key='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')
+    client = OpenAI(api_key=openai_api_key)
     translation_string = ''
     if dialect == 'mexican':
       with open('mexican.csv') as f:
