@@ -9,15 +9,18 @@ Our Solution: We built custom slang dictionaries for specific dialects and integ
 Technology Stack:
 
 Backend:
-Python: We utilized Python as the foundation for our backend development, leveraging its versatility and extensive libraries.
-Flask: We chose Flask, a lightweight web framework, to build the backend infrastructure for our website, ensuring efficiency and scalability.
+- Python: We utilized Python as the foundation for our backend development, leveraging its versatility and extensive libraries.
+- Flask: We chose Flask, a lightweight web framework, to build the backend infrastructure for our website, ensuring efficiency and scalability.
+
 Frontend:
-HTML: We used HTML to structure the website's content and user interface, creating a user-friendly layout for interacting with the translation functionality.
-CSS: We employed CSS to style the website's visual elements, tailoring the user experience and promoting a visually appealing interface.
+- HTML: We used HTML to structure the website's content and user interface, creating a user-friendly layout for interacting with the translation functionality.
+- CSS: We employed CSS to style the website's visual elements, tailoring the user experience and promoting a visually appealing interface.
+  
 Cloud Infrastructure:
-Microsoft Azure: We hosted our website on Microsoft Azure for its reliability, scalability, and global reach, allowing users from anywhere to access the translation service.
-OpenAI GPT-4: We utilized OpenAI's powerful language model to provide a foundation for the translation engine.
-Custom Slang Dictionaries: Our team curated comprehensive slang dictionaries for various dialects, ensuring slang terms are translated accurately.
+- Microsoft Azure: We hosted our website on Microsoft Azure for its reliability, scalability, and global reach, allowing users from anywhere to access the translation service.
+- OpenAI GPT-4: We utilized OpenAI's powerful language model to provide a foundation for the translation engine.
+- Custom Slang Dictionaries: Our team curated comprehensive slang dictionaries for various dialects, ensuring slang terms are translated accurately.
+  
 Teamwork and Learning Outcomes:
 
 Collaboration: This project fostered strong teamwork skills. We learned to effectively communicate, delegate tasks, and work together towards a common goal.
